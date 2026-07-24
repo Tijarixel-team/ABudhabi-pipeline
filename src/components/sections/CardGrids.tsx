@@ -9,7 +9,7 @@ export function IndustryGrid({ industries }: { industries: Industry[] }) {
       {industries.map((industry) => (
         <article key={industry.slug} className="overflow-hidden rounded-[var(--radius)] border border-secondary/15 bg-white shadow-sm">
           <div className="relative aspect-[16/10]">
-            <Image src={industry.image.src} alt={industry.image.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <Image src={industry.image.src} alt={industry.image.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
           </div>
           <div className="p-6">
             <h2 className="text-xl font-semibold text-primary">{industry.name}</h2>
@@ -62,7 +62,7 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
       {projects.map((project) => (
         <article key={project.title} className="overflow-hidden rounded-[var(--radius)] border border-secondary/15 bg-white shadow-sm">
           <div className="relative aspect-[16/9]">
-            <Image src={project.image.src} alt={project.image.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <Image src={project.image.src} alt={project.image.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
           <div className="p-6">
             <p className="text-xs font-bold uppercase tracking-[0.12em] text-secondary">{project.industry} · {project.location}</p>
@@ -79,7 +79,7 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
 export function ProductPreview({ title, href, image, summary }: { title: string; href: string; image: string; summary: string }) {
   return (
     <Link href={href} className="group block overflow-hidden rounded-[var(--radius)] border border-secondary/15 bg-white shadow-sm">
-      <div className="relative aspect-[4/3]"><Image src={image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" /></div>
+      <div className="relative aspect-[4/3]"><Image src={image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" /></div>
       <div className="p-5">
         <h3 className="text-lg font-semibold text-primary">{title}</h3>
         <p className="mt-2 text-sm leading-6 text-muted">{summary}</p>

@@ -26,9 +26,9 @@ export function PageHero({
   }
 }: PageHeroProps) {
   return (
-    <section className="technical-grid relative overflow-hidden bg-primary pt-32 text-white">
+    <section className="relative overflow-hidden bg-primary pt-32 text-white">
       <div className="absolute inset-y-0 right-0 hidden w-[48%] lg:block" aria-hidden>
-        <Image src={image.src} alt="" fill priority sizes="48vw" className="object-cover opacity-70" />
+        <Image src={image.src} alt="" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover opacity-70" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--primary))_0%,rgba(8,33,59,.78)_36%,rgba(8,33,59,.24)_100%)]" />
       </div>
       <div className="section-shell relative grid gap-10 pb-16 lg:grid-cols-[0.95fr_0.75fr] lg:items-end">
@@ -47,7 +47,7 @@ export function PageHero({
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/72">{description}</p>
         </div>
         <div className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius)] border border-white/12 shadow-[var(--shadow)] lg:hidden">
-          <Image src={image.src} alt={image.alt} fill priority sizes="100vw" className="object-cover" />
+          <Image src={image.src} alt={image.alt} fill priority sizes="(max-width: 1024px) 100vw, 0vw" className="object-cover" />
         </div>
       </div>
     </section>

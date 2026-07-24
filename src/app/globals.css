@@ -2,6 +2,7 @@
 
 :root {
   --primary: 210 86% 18%;
+  --logo-bg: 194 96% 27%;
   --secondary: 198 48% 35%;
   --accent: 39 72% 58%;
   --surface: 42 26% 96%;
@@ -13,6 +14,7 @@
 
 @theme inline {
   --color-primary: hsl(var(--primary));
+  --color-logo-bg: hsl(var(--logo-bg));
   --color-secondary: hsl(var(--secondary));
   --color-accent: hsl(var(--accent));
   --color-surface: hsl(var(--surface));

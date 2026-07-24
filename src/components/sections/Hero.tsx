@@ -20,7 +20,6 @@ export function HomeHero() {
         <source src={assets.heroVideo} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,33,59,.94),rgba(8,33,59,.66)_42%,rgba(8,33,59,.18))]" />
-      <div className="absolute inset-0 technical-grid opacity-30" aria-hidden />
       <div className="section-shell relative flex min-h-[calc(100vh-7rem)] items-center py-20">
         <Reveal className="max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/16 bg-white/10 px-4 py-2 text-sm text-white/76">

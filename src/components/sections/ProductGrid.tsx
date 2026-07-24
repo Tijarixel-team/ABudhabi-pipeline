@@ -39,7 +39,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
         {filtered.map((product) => (
           <Link key={product.slug} href={`/products/${product.slug}`} className="group overflow-hidden rounded-[var(--radius)] border border-secondary/15 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow)]">
             <div className="relative aspect-[4/3]">
-              <Image src={product.image.src} alt={product.image.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition duration-500 group-hover:scale-105" />
+              <Image src={product.image.src} alt={product.image.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
             </div>
             <div className="p-6">
               <p className="text-xs font-bold uppercase tracking-[0.12em] text-secondary">{product.category}</p>

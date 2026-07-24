@@ -23,7 +23,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/92 text-white backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-logo-bg text-white">
       <nav className="section-shell flex h-20 items-center justify-between gap-6" aria-label="Main navigation">
         <Link href="/" className="flex items-center gap-3" aria-label={`${company.name} home`}>
           <Image
@@ -31,8 +31,8 @@ export function Header() {
             alt={`${company.name} logo`}
             width={196}
             height={50}
-            priority
-            className="h-11 w-auto object-contain sm:h-12"
+            loading="eager"
+            className="h-16 w-auto object-contain sm:h-[72px]"
           />
         </Link>
         <div className="hidden items-center gap-1 lg:flex">
@@ -51,7 +51,7 @@ export function Header() {
                   {"children" in item && item.children ? <ChevronDown aria-hidden size={15} /> : null}
                 </Link>
                 {"children" in item && item.children ? (
-                  <div className="invisible absolute left-0 top-full w-72 translate-y-3 rounded-[var(--radius)] border border-white/12 bg-primary p-2 opacity-0 shadow-[var(--shadow)] transition group-hover:visible group-hover:translate-y-1 group-hover:opacity-100">
+                  <div className="invisible absolute left-0 top-full w-72 translate-y-3 rounded-[var(--radius)] border border-white/12 bg-logo-bg p-2 opacity-0 shadow-[var(--shadow)] transition group-hover:visible group-hover:translate-y-1 group-hover:opacity-100">
                     {item.children.map((child) => (
                       <Link key={child.href} href={child.href} className="block rounded-[var(--radius)] px-3 py-3 text-sm text-white/76 hover:bg-white/10 hover:text-white">
                         {child.label}
@@ -78,7 +78,7 @@ export function Header() {
         </button>
       </nav>
       {open ? (
-        <div id="mobile-menu" className="border-t border-white/10 bg-primary px-5 py-4 lg:hidden">
+        <div id="mobile-menu" className="border-t border-white/10 bg-logo-bg px-5 py-4 lg:hidden">
           <div className="flex flex-col gap-1">
             {navigation.map((item) => (
               <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="rounded-[var(--radius)] px-3 py-3 font-semibold text-white/84 hover:bg-white/10">

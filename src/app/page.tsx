@@ -24,7 +24,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius)] shadow-[var(--shadow)]">
-              <Image src={assets.manufacturing} alt="Composite pipe manufacturing inspection placeholder" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <Image src={assets.manufacturing} alt="Composite pipe manufacturing inspection placeholder" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
             </div>
           </Reveal>
         </div>
