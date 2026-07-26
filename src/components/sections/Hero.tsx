@@ -1,4 +1,4 @@
-import { Factory, ShieldCheck } from "lucide-react";
+import { Factory } from "lucide-react";
 import { assets } from "@/config/assets";
 import { company } from "@/config/company";
 import { Button } from "@/components/ui/Button";
@@ -35,10 +35,6 @@ export function HomeHero() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button href="/products">Explore Products</Button>
             <Button href="/contact" variant="secondary">{company.contactCta}</Button>
-          </div>
-          <div className="mt-10 flex max-w-xl items-start gap-3 border-l-2 border-accent pl-4 text-sm leading-6 text-white/68">
-            <ShieldCheck aria-hidden className="mt-1 shrink-0 text-accent" size={18} />
-            Public ADPF materials reference ISO 9001, ISO 14001, FM, API and WRc approvals. Current certificate scope should be verified before launch.
           </div>
         </Reveal>
       </div>
