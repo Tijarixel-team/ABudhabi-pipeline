@@ -1,8 +1,7 @@
 "use client";
 
-import { Pause, Play } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "motion/react";
 import { assets } from "@/config/assets";
 import { company } from "@/config/company";
 import { Button } from "@/components/ui/Button";
@@ -10,8 +9,7 @@ import { Reveal } from "@/components/animations/Reveal";
 
 export function HomeHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const reduceMotion = useReducedMotion();
-  const [manuallyPaused, setManuallyPaused] = useState(false);
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -21,29 +19,56 @@ export function HomeHero() {
       video.muted = true;
       video.volume = 0;
     }
+    if (!video) return;
+
+    let cancelled = false;
+    const showPoster = () => {
+      if (!cancelled) setAutoplayBlocked(true);
+    };
+
     if (media.matches) {
-      video?.pause();
+      video.pause();
+      const frame = window.requestAnimationFrame(showPoster);
+      return () => {
+        cancelled = true;
+        window.cancelAnimationFrame(frame);
+      };
     }
+
+    const playback = video.play();
+    playback?.then(() => {
+      if (!cancelled) setAutoplayBlocked(false);
+    }).catch(showPoster);
+
+    const verifyTimer = window.setTimeout(() => {
+      if (video.paused) showPoster();
+    }, 700);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(verifyTimer);
+    };
   }, []);
 
-  const toggleVideo = () => {
+  const startVideo = async () => {
     const video = videoRef.current;
     if (!video) return;
-    if (video.paused) {
-      void video.play();
-      setManuallyPaused(false);
-    } else {
-      video.pause();
-      setManuallyPaused(true);
+    video.muted = true;
+    video.volume = 0;
+    try {
+      await video.play();
+      setAutoplayBlocked(false);
+    } catch {
+      setAutoplayBlocked(true);
     }
   };
 
   return (
     <section data-no-blueprint className="relative z-30 min-h-[760px] overflow-hidden bg-logo-bg pt-[72px] text-white lg:min-h-[820px]">
-      <div className="absolute inset-0 bg-[url('/images/hero/adpf-hero.png')] bg-cover bg-center" aria-hidden />
+      <div className="absolute inset-0 z-0 bg-[url('/images/hero/adpf-hero.png')] bg-cover bg-center" aria-hidden />
       <video
         ref={videoRef}
-        className="hero-video absolute inset-0 size-full object-cover"
+        className="hero-video absolute inset-0 z-[1] size-full object-cover"
         autoPlay
         muted
         loop
@@ -55,11 +80,16 @@ export function HomeHero() {
           event.currentTarget.muted = true;
           event.currentTarget.volume = 0;
         }}
+        onPlaying={() => setAutoplayBlocked(false)}
       >
         <source src={assets.heroVideo} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--logo-bg)/.96),hsl(var(--logo-bg)/.78)_48%,hsl(var(--logo-bg)/.22))]" />
-      <div className="section-shell relative flex min-h-[676px] items-center py-20 lg:min-h-[736px]">
+      {autoplayBlocked ? <Image src={assets.heroFirstFrame} alt="" fill priority sizes="100vw" className="absolute inset-0 z-[2] object-cover md:hidden" aria-hidden /> : null}
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(90deg,hsl(var(--logo-bg)/.96),hsl(var(--logo-bg)/.78)_48%,hsl(var(--logo-bg)/.22))]" />
+      {autoplayBlocked ? (
+        <button type="button" onClick={() => void startVideo()} className="absolute inset-0 z-[15] cursor-pointer md:hidden" aria-label="Play background video" />
+      ) : null}
+      <div className="section-shell relative z-20 flex min-h-[676px] items-center py-20 lg:min-h-[736px]">
         <Reveal className="max-w-[780px]">
           <h1 className="max-w-4xl break-words text-[2.3rem] font-normal leading-[1.05] sm:text-[3.25rem] lg:text-[4.75rem]">
             Composite pipe systems for critical UAE infrastructure.
@@ -73,9 +103,6 @@ export function HomeHero() {
           </div>
         </Reveal>
       </div>
-      <button type="button" onClick={toggleVideo} className="absolute bottom-7 right-7 inline-flex size-12 items-center justify-center rounded-full border border-white/30 bg-logo-bg/70 text-white transition hover:bg-logo-bg focus-visible:outline-offset-4 motion-reduce:hidden" aria-label={manuallyPaused || reduceMotion ? "Play background video" : "Pause background video"}>
-        {manuallyPaused || reduceMotion ? <Play aria-hidden size={18} /> : <Pause aria-hidden size={18} />}
-      </button>
     </section>
   );
 }

@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { company } from "@/config/company";
 import { seo } from "@/config/seo";
 import { InitialLoader } from "@/components/layout/InitialLoader";
+import { MobilePipeProgress } from "@/components/layout/MobilePipeProgress";
+
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl),
@@ -35,6 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <InitialLoader />
         <a href="#main-content" className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-full bg-white px-5 py-3 font-bold text-primary shadow-[var(--shadow)] transition focus:translate-y-0">Skip to content</a>
         <Header />
+        <MobilePipeProgress />
         <main id="main-content" className="relative">
           {children}
         </main>

@@ -118,13 +118,46 @@ footer::before {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  opacity: 0.11;
+  opacity: 0.14;
 }
 
 main > section:not([data-no-blueprint]) > *,
 footer > * {
   position: relative;
   z-index: 1;
+}
+
+.mobile-menu-panel {
+  isolation: isolate;
+}
+
+.mobile-menu-panel::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background-image: linear-gradient(hsl(var(--logo-bg) / 0.78), hsl(var(--logo-bg) / 0.94)), url("/images/brand/blueprint-pipes-mobile.png");
+  background-position: center top;
+  background-size: cover;
+  opacity: 0.48;
+}
+
+.nav-hover-outline {
+  transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.nav-hover-outline:hover {
+  border-color: hsl(var(--accent)) !important;
+  background-color: rgb(255 255 255 / 0.1);
+  color: white;
+  box-shadow: inset 0 0 0 1px hsl(var(--accent));
+}
+
+.nav-hover-outline:focus-visible {
+  border-color: hsl(var(--accent)) !important;
+  outline: 1px solid hsl(var(--accent));
+  outline-offset: 2px;
 }
 
 .cta-button {
@@ -193,6 +226,18 @@ footer > * {
 @media (max-width: 767px) {
   .section-shell {
     padding-inline: 20px;
+  }
+
+  main > section:not([data-no-blueprint])::before,
+  footer::before {
+    background-image: url("/images/brand/blueprint-pipes-mobile.png");
+    background-position: center top;
+    background-attachment: scroll;
+    opacity: 0.18;
+  }
+
+  .cta-button::before {
+    background-image: linear-gradient(hsl(var(--logo-bg) / 0.3), hsl(var(--logo-bg) / 0.3)), url("/images/brand/blueprint-pipes-mobile.png");
   }
 }
 

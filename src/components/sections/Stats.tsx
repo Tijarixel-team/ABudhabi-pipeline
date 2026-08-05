@@ -1,3 +1,5 @@
+import { StaggerItem, StaggerReveal } from "@/components/animations/ScrollReveal";
+
 export function Stats() {
   const proof = [
     { title: "Since 1981", text: "Four decades of composite pipe manufacturing experience." },
@@ -7,15 +9,15 @@ export function Stats() {
   ];
 
   return (
-    <section className="bg-white">
-      <div className="section-shell grid border-b border-secondary/15 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="hidden bg-white md:block">
+      <StaggerReveal className="section-shell grid border-b border-secondary/15 md:grid-cols-2 lg:grid-cols-4">
         {proof.map((item) => (
-          <div key={item.title} className="border-secondary/15 py-8 sm:px-6 sm:first:pl-0 sm:[&:nth-child(odd)]:border-r lg:border-r lg:first:pl-0 lg:last:border-r-0">
+          <StaggerItem key={item.title} className="border-secondary/15 py-8 sm:px-6 sm:first:pl-0 sm:[&:nth-child(odd)]:border-r lg:border-r lg:first:pl-0 lg:last:border-r-0">
             <p className="font-serif text-xl text-primary">{item.title}</p>
             <p className="mt-2 text-sm leading-6 text-muted">{item.text}</p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerReveal>
     </section>
   );
 }

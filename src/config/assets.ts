@@ -1,6 +1,8 @@
 export const assets = {
   blueprintPipes: "/images/brand/blueprint-pipes.png",
+  blueprintPipesMobile: "/images/brand/blueprint-pipes-mobile.png",
   hero: "/images/hero/adpf-hero.png",
+  heroFirstFrame: "/images/hero/adpf-hero.png",
   heroVideo: "/images/hero/Hero_page_background_animation_202607221703.mp4",
   facilityYard: "/images/hero/facility-yard.png",
   qualityLab: "/images/hero/quality-lab.png",
