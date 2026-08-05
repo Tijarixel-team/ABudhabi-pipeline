@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 "use client";
 
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
+=======
+import { Factory } from "lucide-react";
+>>>>>>> 76ea1809f1ef0b513791097cbe5a5c01723ac988
 import { assets } from "@/config/assets";
 import { company } from "@/config/company";
 import { Button } from "@/components/ui/Button";
@@ -67,9 +71,15 @@ export function HomeHero() {
           <p className="mt-7 max-w-2xl text-lg leading-8 text-white/74 sm:text-xl">
             {company.name} manufactures GRP, GRV, GRE and pre-insulated pipe systems for water, energy, industrial and utility applications.
           </p>
+<<<<<<< HEAD
           <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <Button href="/contact" variant="inverted">Request a Quote</Button>
             <Button href="/products" variant="secondary">Explore product systems</Button>
+=======
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Button href="/products">Explore Products</Button>
+            <Button href="/contact" variant="secondary">{company.contactCta}</Button>
+>>>>>>> 76ea1809f1ef0b513791097cbe5a5c01723ac988
           </div>
         </Reveal>
       </div>
