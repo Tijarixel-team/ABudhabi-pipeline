@@ -29,17 +29,21 @@ export function MobilePipeProgress() {
 
   const value = Math.round(progress * 100);
   const buildTop = 168 - progress * 144;
+  const isVisible = progress > 0.015 && progress < 0.995;
 
   return (
     <div
-      className={`pointer-events-none fixed right-1.5 top-1/2 z-40 -translate-y-1/2 transition duration-300 sm:right-3 lg:right-5 ${progress > 0.015 && progress < 0.995 ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0"}`}
-      role="progressbar"
-      aria-label="Pipe manufacturing progress"
-      aria-valuemin={0}
-      aria-valuemax={100}
-      aria-valuenow={value}
+      className={`fixed right-1.5 top-1/2 z-40 -translate-y-1/2 transition duration-300 sm:right-3 lg:right-5 ${isVisible ? "pointer-events-auto translate-x-0 opacity-100" : "pointer-events-none translate-x-3 opacity-0"}`}
     >
-      <div className="relative h-36 w-12 lg:h-44 lg:w-14">
+      <button
+        type="button"
+        className="flex min-h-11 min-w-11 cursor-pointer items-center justify-end border-0 bg-transparent p-0"
+        onClick={() => window.scrollTo({ top: 0 })}
+        aria-label={`Back to top (${value}% page progress)`}
+        title="Back to top"
+        tabIndex={isVisible ? 0 : -1}
+      >
+        <span className="relative block h-[5.4rem] w-[1.8rem] lg:h-[6.6rem] lg:w-[2.1rem]">
         <svg viewBox="0 0 62 168" preserveAspectRatio="xMidYMax meet" className="size-full" aria-hidden="true">
           <defs>
             <linearGradient id="pipe-shell" x1="0" x2="1">
@@ -86,7 +90,8 @@ export function MobilePipeProgress() {
           )}
 
         </svg>
-      </div>
+        </span>
+      </button>
     </div>
   );
 }
