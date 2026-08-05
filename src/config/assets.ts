@@ -1,5 +1,5 @@
 export const assets = {
-  logo: "/images/brand/logo.png",
+  blueprintPipes: "/images/brand/blueprint-pipes.png",
   hero: "/images/hero/adpf-hero.png",
   heroVideo: "/images/hero/Hero_page_background_animation_202607221703.mp4",
   facilityYard: "/images/hero/facility-yard.png",

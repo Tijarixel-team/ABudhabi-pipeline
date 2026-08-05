@@ -3,7 +3,7 @@ export const themePresets = {
     name: "ADPF industrial",
     tokens: {
       primary: "210 86% 18%",
-      secondary: "198 48% 35%",
+      secondary: "210 55% 32%",
       accent: "39 72% 58%",
       surface: "42 26% 96%",
       foreground: "214 34% 12%",

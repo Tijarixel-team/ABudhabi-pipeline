@@ -9,8 +9,8 @@ export const metadata = { title: "Quality", description: "Quality control, testi
 export default function QualityPage() {
   return (
     <>
-      <PageHero eyebrow="Quality" title="Quality-control information with explicit verification status." description="The site only displays standards and approvals found in public ADPF or reputable third-party sources, with scope requiring launch review where necessary." breadcrumbs={[{ label: "Quality", href: "/quality" }]} image={{ src: assets.qualityLab, alt: "Composite pipe sample inspected with quality-control equipment" }} />
-      <section className="py-20"><div className="section-shell"><SectionHeader eyebrow="Standards" title="No unsupported certification logos." text="Certification cards are intentionally text-based until current certificates, validity dates, scope and logo usage permissions are supplied." /><div className="mt-10"><CertificationGrid certifications={certifications} /></div></div></section>
+      <PageHero eyebrow="Quality" title="Quality control embedded in manufacturing." description="In-house inspection and testing support consistent production across ADPF composite pipe systems." breadcrumbs={[{ label: "Quality", href: "/quality" }]} image={{ src: assets.qualityLab, alt: "Composite pipe sample inspected with quality-control equipment" }} />
+      <section className="py-24 lg:py-32"><div className="section-shell"><SectionHeader title="Management systems and product approvals." text="Review the standards and approvals referenced for ADPF systems. Contact our team for current certificates and the scope relevant to your application." /><div className="mt-14"><CertificationGrid certifications={certifications} /></div></div></section>
     </>
   );
 }

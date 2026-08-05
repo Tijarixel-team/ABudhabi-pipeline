@@ -9,8 +9,8 @@ export const metadata = { title: "Industries", description: "Infrastructure appl
 export default function IndustriesPage() {
   return (
     <>
-      <PageHero eyebrow="Industries" title="Applications across water, energy and industrial infrastructure." description="Public ADPF content references product usage in oil and gas, desalination, power, pumping stations, fire protection, irrigation, potable water, sewerage and drainage." breadcrumbs={[{ label: "Industries", href: "/industries" }]} image={{ src: assets.waterDesalination, alt: "Composite pipelines serving coastal water infrastructure" }} />
-      <section className="py-20"><div className="section-shell"><SectionHeader eyebrow="Applications" title="Verified public application areas." text="Each card is rendered from content data and can be expanded into individual application pages when ADPF supplies project-specific proof points." /><div className="mt-10"><IndustryGrid industries={industries} /></div></div></section>
+      <PageHero eyebrow="Industries" title="Applications across water, energy and industrial infrastructure." description="ADPF composite pipe systems serve water, desalination, utility, municipal and industrial networks across demanding operating environments." breadcrumbs={[{ label: "Industries", href: "/industries" }]} image={{ src: assets.waterDesalination, alt: "Composite pipelines serving coastal water infrastructure" }} />
+      <section className="py-24 lg:py-32"><div className="section-shell"><SectionHeader title="Designed around the application." text="Start with the environment and service conditions. Our team can help identify the product system and technical information relevant to your project." /><div className="mt-14"><IndustryGrid industries={industries} /></div></div></section>
     </>
   );
 }

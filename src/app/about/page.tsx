@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { CapabilityList } from "@/components/sections/CardGrids";
@@ -10,14 +11,20 @@ export const metadata = { title: "About", description: "Company history and manu
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About" title="A UAE composite pipe manufacturer established in 1981." description="ADPF public information describes glass-reinforced pipe and fitting manufacturing in Abu Dhabi and Dubai, with infrastructure applications across the Gulf and beyond." breadcrumbs={[{ label: "About", href: "/about" }]} image={{ src: assets.facilityYard, alt: "Modern UAE composite pipe facility and organized pipe yard" }} />
-      <section className="py-20"><div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-        <SectionHeader eyebrow="History" title="From technical collaboration to regional infrastructure supply." text={`Abu Dhabi Pipe Factory was established in ${company.established} in technical collaboration with Cord International, a French company. Public materials reference thousands of kilometres of ADPF pipes installed in applications including petrochemical plants, desalination, potable water, sewerage, drainage, cooling water and fire-fighting systems.`} />
-        <div className="grid gap-4">
-          {[1981, 2000, 2026].map((year, index) => <article key={year} className="rounded-[var(--radius)] border border-secondary/15 bg-white p-6 shadow-sm"><p className="text-2xl font-semibold text-accent">{year}</p><p className="mt-2 text-muted">{index === 0 ? "ADPF established in Abu Dhabi." : index === 1 ? "Public source references more than 25 years of composite pipe manufacturing experience." : "Current launch content requires final company review for capacities, approvals and project records."}</p></article>)}
+      <PageHero eyebrow="About" title="A UAE composite pipe manufacturer established in 1981." description="ADPF manufactures glass-reinforced pipes and fittings for water, energy, municipal and industrial infrastructure." breadcrumbs={[{ label: "About", href: "/about" }]} image={{ src: assets.facilityYard, alt: "Modern UAE composite pipe facility and organized pipe yard" }} />
+      <section className="py-24 lg:py-32">
+        <div className="section-shell grid gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-20">
+          <div>
+            <SectionHeader title="Four decades of manufacturing in the UAE." text={`${company.name} was established in ${company.established}. Its systems serve applications including desalination, potable water, sewerage, drainage, cooling water, fire protection and industrial infrastructure.`} />
+            <div className="mt-10 border-t border-secondary/20">
+              <div className="grid gap-3 border-b border-secondary/20 py-6 sm:grid-cols-[120px_1fr]"><p className="font-serif text-3xl text-accent">1981</p><p className="leading-7 text-muted">Abu Dhabi Pipe Factory established in Abu Dhabi.</p></div>
+              <div className="grid gap-3 border-b border-secondary/20 py-6 sm:grid-cols-[120px_1fr]"><p className="font-serif text-3xl text-accent">Today</p><p className="leading-7 text-muted">Manufacturing presence in Abu Dhabi and Dubai serving regional infrastructure applications.</p></div>
+            </div>
+          </div>
+          <div className="relative min-h-[460px] overflow-hidden rounded-[var(--radius)] lg:min-h-[620px]"><Image src={assets.facilityYard} alt="Composite pipe manufacturing facility and organized pipe yard" fill sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover" /></div>
         </div>
-      </div></section>
-      <section className="bg-white py-20"><div className="section-shell"><SectionHeader eyebrow="Footprint" title="Abu Dhabi and Dubai manufacturing presence." text="The public ADPF website references facilities in Abu Dhabi and Dubai; third-party profiles identify Mafraq Industrial Area and Dubai Investment Park." /><div className="mt-10"><CapabilityList capabilities={capabilities} /></div></div></section>
+      </section>
+      <section className="bg-white py-24 lg:py-32"><div className="section-shell grid gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20"><SectionHeader title="A connected manufacturing capability." text="Engineering review, filament winding, quality control, delivery coordination and field support work as one project-focused process." /><CapabilityList capabilities={capabilities} /></div></section>
     </>
   );
 }

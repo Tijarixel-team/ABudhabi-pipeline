@@ -15,12 +15,11 @@ export async function POST(request: Request) {
 
   if (!process.env.RESEND_API_KEY) {
     return NextResponse.json({
-      message:
-        "Your enquiry passed validation. Email delivery is not configured yet, so no message was sent. Add an email provider in src/app/api/contact/route.ts before launch."
-    });
+      message: "Online enquiry delivery is temporarily unavailable. Please contact info@adpf.ae or call +971 2 5821600."
+    }, { status: 503 });
   }
 
   return NextResponse.json({
-    message: "Email provider credentials are present. Connect the selected provider implementation before launch."
-  });
+    message: "Online enquiry delivery is temporarily unavailable. Please contact info@adpf.ae or call +971 2 5821600."
+  }, { status: 503 });
 }

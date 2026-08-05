@@ -1,11 +1,21 @@
-import { Badge } from "@/components/ui/Badge";
+import { cn } from "@/lib/utils";
 
-export function SectionHeader({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
+export function SectionHeader({
+  title,
+  text,
+  inverse = false,
+  className
+}: {
+  eyebrow?: string;
+  title: string;
+  text: string;
+  inverse?: boolean;
+  className?: string;
+}) {
   return (
-    <div className="max-w-3xl">
-      <Badge>{eyebrow}</Badge>
-      <h2 className="mt-4 text-3xl font-semibold tracking-normal text-primary sm:text-4xl">{title}</h2>
-      <p className="mt-4 text-base leading-8 text-muted">{text}</p>
+    <div className={cn("max-w-3xl", className)}>
+      <h2 className={cn("text-4xl font-normal leading-[1.08] sm:text-5xl", inverse ? "text-white" : "text-primary")}>{title}</h2>
+      <p className={cn("mt-5 max-w-[68ch] text-base leading-8", inverse ? "text-white/72" : "text-muted")}>{text}</p>
     </div>
   );
 }

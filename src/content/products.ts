@@ -11,8 +11,8 @@ export const products: Product[] = [
       "ADPF publicly describes its core product as glass-reinforced plastic pipes and fittings, including GRP, GRV and GRE systems. The public site confirms dual helical filament winding and continuous filament winding manufacturing methods.",
     applications: ["Potable water", "Sewerage", "Drainage", "Cooling water", "Desalination", "Petrochemical plants"],
     advantages: ["Composite corrosion resistance", "Factory-produced fittings", "Manufactured through filament winding methods"],
-    specifications: ["Detailed diameter, pressure, liner and resin specifications require confirmation from current catalogues."],
-    downloads: ["Catalogue download requires a current approved document."],
+    specifications: ["Share the required diameter, pressure class, liner, resin and service conditions for technical review."],
+    downloads: ["Request the current product catalogue from the engineering team."],
     image: { src: assets.grpPipesFittings, alt: "GRP composite pipes and fittings arranged in an industrial yard", status: "placeholder" },
     verificationStatus: "verified"
   },
@@ -25,8 +25,8 @@ export const products: Product[] = [
       "The public ADPF site states that ADPF pre-insulated pipes have been installed in district cooling projects for distribution of chilled water.",
     applications: ["District cooling", "Chilled-water distribution", "Utility infrastructure"],
     advantages: ["Factory-integrated insulation concept", "Infrastructure-focused supply", "Compatible enquiry flow for project review"],
-    specifications: ["Insulation materials, jacket types and thermal values require catalogue confirmation."],
-    downloads: ["Pre-insulated pipe brochure requires confirmation."],
+    specifications: ["Share operating temperature, pipe size and installation conditions for technical review."],
+    downloads: ["Request current pre-insulated system information from the engineering team."],
     image: { src: assets.waterDesalination, alt: "Composite pipelines serving coastal utility infrastructure", status: "placeholder" },
     verificationStatus: "verified"
   },
@@ -36,11 +36,11 @@ export const products: Product[] = [
     category: "Accessories",
     summary: "Composite fittings and joint systems supporting ADPF pipe networks.",
     description:
-      "The source website presents fittings and joint systems as product areas. Detailed fitting ranges, joint types and limits should be checked against current engineering documents before publication.",
+      "ADPF fittings and joint systems support composite pipe networks across plant, water and utility applications. Selection is reviewed at system level for each project.",
     applications: ["Pipe network connections", "Plant piping", "Water and utility corridors", "Installation support"],
     advantages: ["System-level compatibility", "Project-specific engineering review", "Factory and field installation support"],
-    specifications: ["Specific joint types and dimensional tables require confirmation."],
-    downloads: ["Joint system drawings require confirmation."],
+    specifications: ["Share the pipe system, dimensions and installation conditions for joint-system review."],
+    downloads: ["Request relevant joint-system information from the engineering team."],
     image: { src: assets.grpPipesFittings, alt: "Composite pipe fittings and large-diameter pipe sections", status: "placeholder" },
     verificationStatus: "verified"
   },
@@ -50,11 +50,11 @@ export const products: Product[] = [
     category: "Composite Pipes",
     summary: "Glass-reinforced epoxy pipe systems referenced in ADPF public company profiles.",
     description:
-      "ADPF public profiles identify GRE as one of the glass-reinforced pipe types manufactured by the company. Current service conditions and approvals must be confirmed from the latest technical documents.",
+      "GRE is one of the glass-reinforced pipe systems associated with ADPF manufacturing. Product selection is reviewed against the intended application and service conditions.",
     applications: ["Oil and gas", "Industrial infrastructure", "Water service where approved"],
     advantages: ["Epoxy resin system option", "Composite pipe construction", "Designed for technical review by application"],
-    specifications: ["Pressure, temperature and approval data require current technical confirmation."],
-    downloads: ["GRE product datasheet requires confirmation."],
+    specifications: ["Share pressure, temperature, media and approval requirements for technical review."],
+    downloads: ["Request current GRE technical information from the engineering team."],
     image: { src: assets.fieldInstallation, alt: "Composite pipeline installation with flanges and industrial supports", status: "placeholder" },
     verificationStatus: "third-party"
   }

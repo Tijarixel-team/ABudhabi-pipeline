@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { FloatingContact } from "@/components/layout/FloatingContact";
 import { company } from "@/config/company";
 import { seo } from "@/config/seo";
+import { InitialLoader } from "@/components/layout/InitialLoader";
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl),
@@ -32,10 +32,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body>
+        <InitialLoader />
+        <a href="#main-content" className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-full bg-white px-5 py-3 font-bold text-primary shadow-[var(--shadow)] transition focus:translate-y-0">Skip to content</a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content" className="relative">
+          {children}
+        </main>
         <Footer />
-        <FloatingContact />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>

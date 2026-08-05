@@ -5,33 +5,32 @@ import { cn } from "@/lib/utils";
 type ButtonProps = {
   href?: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "inverted" | "ghost";
   className?: string;
   type?: "button" | "submit";
 };
 
 export function Button({ href, children, variant = "primary", className, type = "button" }: ButtonProps) {
   const classes = cn(
-    "inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius)] px-5 py-3 text-sm font-semibold transition",
-    variant === "primary" && "bg-accent text-primary hover:bg-white",
-    variant === "secondary" && "border border-white/30 bg-white/10 text-white hover:bg-white hover:text-primary",
-    variant === "ghost" && "text-primary hover:text-secondary",
+    "cta-button group inline-flex min-h-12 items-center justify-center gap-4 whitespace-nowrap rounded-full py-1.5 pl-6 pr-1.5 text-sm font-bold focus-visible:outline-offset-4",
+    (variant === "primary" || variant === "ghost") && "cta-button--light",
+    (variant === "secondary" || variant === "inverted") && "cta-button--dark",
     className
   );
 
   if (href) {
     return (
       <Link href={href} className={classes}>
-        {children}
-        <ArrowRight aria-hidden size={18} />
+        <span>{children}</span>
+        <span className="cta-button__icon inline-flex size-9 items-center justify-center rounded-full"><ArrowRight aria-hidden size={16} /></span>
       </Link>
     );
   }
 
   return (
     <button type={type} className={classes}>
-      {children}
-      <ArrowRight aria-hidden size={18} />
+      <span>{children}</span>
+      <span className="cta-button__icon inline-flex size-9 items-center justify-center rounded-full"><ArrowRight aria-hidden size={16} /></span>
     </button>
   );
 }

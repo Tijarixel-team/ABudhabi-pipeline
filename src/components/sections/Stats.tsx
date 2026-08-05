@@ -1,15 +1,18 @@
-import { company } from "@/config/company";
-import { Counter } from "@/components/animations/Counter";
-
 export function Stats() {
+  const proof = [
+    { title: "Since 1981", text: "Four decades of composite pipe manufacturing experience." },
+    { title: "UAE manufacturing", text: "Production presence in Abu Dhabi and Dubai." },
+    { title: "Engineered production", text: "Dual helical and continuous filament winding methods." },
+    { title: "In-house quality control", text: "Short- and long-term testing capability." }
+  ];
+
   return (
-    <section className="bg-white py-10">
-      <div className="section-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {company.stats.map((stat) => (
-          <div key={stat.label} className="border-l border-secondary/20 pl-5">
-            <p className="text-3xl font-semibold text-primary"><Counter value={stat.value} suffix={stat.suffix} /></p>
-            <p className="mt-2 text-sm font-semibold text-foreground">{stat.label}</p>
-            <p className="mt-1 text-xs leading-5 text-muted">{stat.note}</p>
+    <section className="bg-white">
+      <div className="section-shell grid border-b border-secondary/15 sm:grid-cols-2 lg:grid-cols-4">
+        {proof.map((item) => (
+          <div key={item.title} className="border-secondary/15 py-8 sm:px-6 sm:first:pl-0 sm:[&:nth-child(odd)]:border-r lg:border-r lg:first:pl-0 lg:last:border-r-0">
+            <p className="font-serif text-xl text-primary">{item.title}</p>
+            <p className="mt-2 text-sm leading-6 text-muted">{item.text}</p>
           </div>
         ))}
       </div>

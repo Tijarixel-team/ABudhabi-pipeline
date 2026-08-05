@@ -2,8 +2,10 @@ import type { ContactLocation, Stat } from "@/types/site";
 
 export const company = {
   name: "Abu Dhabi Pipe Factory",
+  nameArabic: "مصنع أبوظبي للأنابيب ذ.م.م.",
   shortName: "ADPF",
   legalName: "Abu Dhabi Pipe Factory L.L.C.",
+  productDescriptor: "Filament Wound Reinforced Thermosetting Resin Pipes",
   established: 1981,
   tagline: "Composite pipe systems for demanding infrastructure",
   description:
