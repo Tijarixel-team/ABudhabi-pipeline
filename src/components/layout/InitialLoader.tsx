@@ -7,8 +7,9 @@ export function InitialLoader() {
   const [phase, setPhase] = useState<"visible" | "leaving" | "hidden">("visible");
 
   useEffect(() => {
-    const leaveTimer = window.setTimeout(() => setPhase("leaving"), 950);
-    const hideTimer = window.setTimeout(() => setPhase("hidden"), 1450);
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const leaveTimer = window.setTimeout(() => setPhase("leaving"), isMobile ? 1800 : 950);
+    const hideTimer = window.setTimeout(() => setPhase("hidden"), isMobile ? 2300 : 1450);
     return () => {
       window.clearTimeout(leaveTimer);
       window.clearTimeout(hideTimer);

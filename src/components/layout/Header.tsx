@@ -13,6 +13,7 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [solidHeader, setSolidHeader] = useState(false);
+  const [hideLogoText, setHideLogoText] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   const closeDisclosures = () => {
@@ -48,7 +49,10 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const updateHeader = () => setSolidHeader(window.scrollY > 4);
+    const updateHeader = () => {
+      setSolidHeader(window.scrollY > 4);
+      setHideLogoText(window.scrollY > 120);
+    };
 
     const frame = window.requestAnimationFrame(updateHeader);
     window.addEventListener("scroll", updateHeader, { passive: true });
@@ -79,7 +83,7 @@ export function Header() {
     >
       <nav className="section-shell relative z-30 flex h-[72px] items-center justify-between gap-6" aria-label="Main navigation">
         <Link href="/" className="flex items-center gap-3" aria-label={`${company.name} home`}>
-          <BrandWordmark size="compact" />
+          <BrandWordmark size="compact" hideText={hideLogoText} />
         </Link>
         <div className="hidden items-center gap-2 lg:flex">
           {navigation.map((item) => {

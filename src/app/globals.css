@@ -236,6 +236,15 @@ footer > * {
     opacity: 0.18;
   }
 
+  main > section:not([data-no-blueprint])::before {
+    background-position: left top;
+    opacity: 0.24;
+  }
+
+  main > section:nth-of-type(even):not([data-no-blueprint])::before {
+    background-position: right top;
+  }
+
   .cta-button::before {
     background-image: linear-gradient(hsl(var(--logo-bg) / 0.3), hsl(var(--logo-bg) / 0.3)), url("/images/brand/blueprint-pipes-mobile.png");
   }

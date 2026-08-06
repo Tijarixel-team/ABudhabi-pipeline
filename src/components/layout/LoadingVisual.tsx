@@ -10,6 +10,7 @@ export function LoadingVisual({ leaving = false }: { leaving?: boolean }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const interval = window.matchMedia("(max-width: 767px)").matches ? 60 : 32;
     const timer = window.setInterval(() => {
       setProgress((value) => {
         if (value >= 100) {
@@ -18,7 +19,7 @@ export function LoadingVisual({ leaving = false }: { leaving?: boolean }) {
         }
         return Math.min(100, value + 4);
       });
-    }, 32);
+    }, interval);
     return () => window.clearInterval(timer);
   }, []);
 
